@@ -4,6 +4,11 @@ namespace Pocztowy.Shop.Models
 {
     public class OrderDetail : Base
     {
+        protected OrderDetail()
+        {
+
+        }
+
         public OrderDetail(Item item, int quantity = 1)
         {
             if (item == null)

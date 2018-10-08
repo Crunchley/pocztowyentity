@@ -21,3 +21,5 @@ C:\Users\szkolenie\source\repos\Pocztowy.Shop\Pocztowy.Shop.ConsoleClient\bin\De
 C:\Users\szkolenie\source\repos\Pocztowy.Shop\Pocztowy.Shop.ConsoleClient\bin\Debug\netcoreapp2.1\appsettings.json
 C:\Users\szkolenie\source\repos\Pocztowy.Shop\Pocztowy.Shop.ConsoleClient\bin\Debug\netcoreapp2.1\appsettings.xml
 C:\Users\szkolenie\source\repos\Pocztowy.Shop\Pocztowy.Shop.ConsoleClient\bin\Debug\netcoreapp2.1\appsettings.development.json
+C:\Users\szkolenie\source\repos\Pocztowy.Shop\Pocztowy.Shop.ConsoleClient\bin\Debug\netcoreapp2.1\Pocztowy.Shop.DbServices.dll
+C:\Users\szkolenie\source\repos\Pocztowy.Shop\Pocztowy.Shop.ConsoleClient\bin\Debug\netcoreapp2.1\Pocztowy.Shop.DbServices.pdb

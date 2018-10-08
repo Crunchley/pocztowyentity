@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Pocztowy.Shop.DbServices;
 using Pocztowy.Shop.FakeServices;
 using Pocztowy.Shop.Generator;
 using Pocztowy.Shop.IServices;
@@ -24,7 +26,24 @@ namespace Pocztowy.Shop.ConsoleClient
                 .Build();
 
             string connectionString = configuration.GetConnectionString("ShopConnection");
+
+            var optionsBuilder = new DbContextOptionsBuilder<ShopContext>();
+            optionsBuilder.UseSqlServer(connectionString);
+
+            ShopContext context = new ShopContext(optionsBuilder.Options);
+
+            context.Database.EnsureCreated();
+
             string customers = configuration["Generator:Customers"];
+
+            //generowanie danych
+            Generator.Generator generator = new Generator.Generator();
+            var products = generator.GetProducts(100);
+            var services = generator.GetServices(100);
+
+            context.Products.AddRange(products);
+            context.Services.AddRange(services);
+            context.SaveChanges();
 
             Console.WriteLine("Liczba klientów: " + customers);
             Console.ReadKey();

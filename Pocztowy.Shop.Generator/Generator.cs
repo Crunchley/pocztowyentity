@@ -9,8 +9,8 @@ namespace Pocztowy.Shop.Generator
     {
         public Faker<Product> FakeProducts => new Faker<Product>()
             .StrictMode(true)
-            .RuleFor(p => p.Id, f => f.IndexFaker)
-            //.Ignore(p=>p.Id)
+            //.RuleFor(p => p.Id, f => f.IndexFaker)
+            .Ignore(p => p.Id)
             .RuleFor(p => p.Name, f => f.Commerce.ProductName())
             .RuleFor(p => p.UnitPrice, f => decimal.Parse(f.Commerce.Price()))
             .RuleFor(p => p.Color, f => f.Commerce.Color())
@@ -19,7 +19,8 @@ namespace Pocztowy.Shop.Generator
 
         public Faker<Service> FakeServices => new Faker<Service>()
             .StrictMode(true)
-            .RuleFor(s => s.Id, f => -f.IndexFaker)
+            //.RuleFor(s => s.Id, f => -f.IndexFaker)
+            .Ignore(p => p.Id)
             .RuleFor(s => s.Name, f => f.Commerce.ProductName())
             .RuleFor(s => s.UnitPrice, f => decimal.Parse(f.Commerce.Price()))
             .RuleFor(s => s.Duration, f => f.Date.Timespan(TimeSpan.FromHours(4)))
