@@ -1,0 +1,52 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.1",
+    "signature": "c9a7cb3f9bf22425d34b009ec452772a5c37042f"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.1": {
+      "Pocztowy.Shop.Generator/1.0.0": {
+        "dependencies": {
+          "Bogus": "24.3.0",
+          "Pocztowy.Shop.Models": "1.0.0"
+        },
+        "runtime": {
+          "Pocztowy.Shop.Generator.dll": {}
+        }
+      },
+      "Bogus/24.3.0": {
+        "runtime": {
+          "lib/netstandard2.0/Bogus.dll": {
+            "assemblyVersion": "24.3.0.0",
+            "fileVersion": "24.3.0.0"
+          }
+        }
+      },
+      "Pocztowy.Shop.Models/1.0.0": {
+        "runtime": {
+          "Pocztowy.Shop.Models.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Pocztowy.Shop.Generator/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Bogus/24.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DekAOPmYgMiJtpzIpyFkT7zvJ+OaENn/YL0DFEG0Kl1mTD79/CiB0vtuPQbFdCfDnk/hIhXTW4jaLr9YG998LQ==",
+      "path": "bogus/24.3.0",
+      "hashPath": "bogus.24.3.0.nupkg.sha512"
+    },
+    "Pocztowy.Shop.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
