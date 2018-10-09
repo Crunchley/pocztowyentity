@@ -12,3 +12,5 @@ C:\Users\szkolenie\source\repos\Pocztowy.Shop\Pocztowy.Shop.DbServices\obj\Debug
 C:\Users\szkolenie\source\repos\Pocztowy.Shop\Pocztowy.Shop.DbServices\bin\Debug\netcoreapp2.1\Pocztowy.Shop.DbServices.pdb
 C:\Users\szkolenie\source\repos\Pocztowy.Shop\Pocztowy.Shop.DbServices\obj\Debug\netcoreapp2.1\Pocztowy.Shop.DbServices.dll
 C:\Users\szkolenie\source\repos\Pocztowy.Shop\Pocztowy.Shop.DbServices\obj\Debug\netcoreapp2.1\Pocztowy.Shop.DbServices.pdb
+C:\Users\szkolenie\source\repos\Pocztowy.Shop\Pocztowy.Shop.DbServices\bin\Debug\netcoreapp2.1\Pocztowy.Shop.DbServices.runtimeconfig.json
+C:\Users\szkolenie\source\repos\Pocztowy.Shop\Pocztowy.Shop.DbServices\bin\Debug\netcoreapp2.1\Pocztowy.Shop.DbServices.runtimeconfig.dev.json

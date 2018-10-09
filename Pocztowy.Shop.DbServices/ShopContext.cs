@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Pocztowy.Shop.DbServices.Configurations;
 using Pocztowy.Shop.Models;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,17 @@ namespace Pocztowy.Shop.DbServices
             : base(options)
         {
 
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new CustomerConfiguration());
+            modelBuilder.ApplyConfiguration(new ItemConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderDetailConfiguration());
+            modelBuilder.ApplyConfiguration(new ServiceConfiguration());
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

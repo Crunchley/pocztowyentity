@@ -32,7 +32,8 @@ namespace Pocztowy.Shop.ConsoleClient
 
             ShopContext context = new ShopContext(optionsBuilder.Options);
 
-            context.Database.EnsureCreated();
+            //context.Database.EnsureDeleted();
+            //context.Database.EnsureCreated();
 
             string customers = configuration["Generator:Customers"];
 
