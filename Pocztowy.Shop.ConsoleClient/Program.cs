@@ -5,6 +5,7 @@ using Pocztowy.Shop.FakeServices;
 using Pocztowy.Shop.Generator;
 using Pocztowy.Shop.IServices;
 using Pocztowy.Shop.Models;
+using Pocztowy.Shop.Models.SearchCriteria;
 using System;
 using System.IO;
 using System.Linq;
@@ -15,28 +16,66 @@ namespace Pocztowy.Shop.ConsoleClient
     {
         static void Main(string[] args)
         {
-            //CreateOrderTest();
+            ContextFactory contextFactory = new DbServices.ContextFactory();
+            ShopContext context = contextFactory.CreateDbContext(args);
 
-            IConfigurationRoot configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
-                .AddJsonFile("appsettings.development.json", optional: true)
-                //.AddCommandLine(args)
-                //.AddXmlFile("appsettings.xml")
-                .Build();
+            var product = context.Products.First();
 
-            string connectionString = configuration.GetConnectionString("ShopConnection");
+            Console.WriteLine(context.Entry(product).State);
+            product.UnitPrice = 121;
+            Console.WriteLine(context.Entry(product).State);
+            context.SaveChanges();
+            Console.WriteLine(context.Entry(product).State);
 
-            var optionsBuilder = new DbContextOptionsBuilder<ShopContext>();
-            optionsBuilder.UseSqlServer(connectionString);
 
-            ShopContext context = new ShopContext(optionsBuilder.Options);
+            IProductsService productsService = new DbProductsService(context);
+
+            //productsService.Remove(20);
+
+            ProductSearchCriteria productSearch = new ProductSearchCriteria
+            {
+
+            };
+            var colorProducts = productsService.Get(productSearch);
 
             //context.Database.EnsureDeleted();
             //context.Database.EnsureCreated();
+            context.Database.Migrate();
 
-            string customers = configuration["Generator:Customers"];
+            var customers = context.Customers.ToList();
+            var products = context.Products
+                .Where(p => p.UnitPrice > 100)
+                .OrderBy(p => p.Name)
+                .Select(p => new { p.Name, p.Color })
+                .ToList();
 
+            var productsByColor = context.Products
+                .GroupBy(p => p.Color)
+                .ToList();
+
+            var productsQuantityByColor = context.Products
+                .GroupBy(p => p.Color)
+                .Select(g => new { Color = g.Key, Quantity = g.Count() })
+                .ToList();
+
+            //string customers = configuration["Generator:Customers"];
+
+            //CreateSampleData(context);
+
+            //Console.WriteLine("Liczba klientów: " + customers);
+            Console.WriteLine("DONE");
+            Console.ReadKey();
+
+            var tuple = GetTuple();
+        }
+
+        private static (string name, string color) GetTuple()
+        {
+            return ("wine", "white");
+        }
+
+        private static void CreateSampleData(ShopContext context)
+        {
             //generowanie danych
             Generator.Generator generator = new Generator.Generator();
             var products = generator.GetProducts(100);
@@ -45,9 +84,6 @@ namespace Pocztowy.Shop.ConsoleClient
             context.Products.AddRange(products);
             context.Services.AddRange(services);
             context.SaveChanges();
-
-            Console.WriteLine("Liczba klientów: " + customers);
-            Console.ReadKey();
         }
 
         private static void CreateOrderTest()

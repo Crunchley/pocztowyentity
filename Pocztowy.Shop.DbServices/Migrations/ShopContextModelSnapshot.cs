@@ -107,10 +107,16 @@ namespace Pocztowy.Shop.DbServices.Migrations
                 {
                     b.HasBaseType("Pocztowy.Shop.Models.Item");
 
+                    b.Property<string>("Barcode")
+                        .HasMaxLength(13)
+                        .IsUnicode(false);
+
                     b.Property<string>("Color")
                         .HasMaxLength(20);
 
                     b.Property<string>("Description");
+
+                    b.Property<float>("Weight");
 
                     b.ToTable("Product");
 

@@ -14,6 +14,11 @@ namespace Pocztowy.Shop.DbServices.Configurations
             builder
                 .Property(p => p.Color)
                 .HasMaxLength(20);
+
+            builder
+                .Property(p => p.Barcode)
+                .HasMaxLength(13)
+                .IsUnicode(false);
         }
     }
 }

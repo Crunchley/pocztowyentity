@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "26bd633bd8bf1ab2e22442fd909a6cb873214493"
+    "signature": "5a1e262cd7854b741b1460096128e64a11889664"
   },
   "compilationOptions": {},
   "targets": {
@@ -10,10 +10,6 @@
         "dependencies": {
           "Bogus": "24.3.0",
           "Microsoft.EntityFrameworkCore": "2.1.4",
-          "Microsoft.EntityFrameworkCore.SqlServer": "2.1.4",
-          "Microsoft.Extensions.Configuration.CommandLine": "2.1.1",
-          "Microsoft.Extensions.Configuration.Json": "2.1.1",
-          "Microsoft.Extensions.Configuration.Xml": "2.1.1",
           "Pocztowy.Shop.DbServices": "1.0.0",
           "Pocztowy.Shop.FakeServices": "1.0.0",
           "Pocztowy.Shop.Generator": "1.0.0",
@@ -154,17 +150,6 @@
           }
         }
       },
-      "Microsoft.Extensions.Configuration.CommandLine/2.1.1": {
-        "dependencies": {
-          "Microsoft.Extensions.Configuration": "2.1.1"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Configuration.CommandLine.dll": {
-            "assemblyVersion": "2.1.1.0",
-            "fileVersion": "2.1.1.18157"
-          }
-        }
-      },
       "Microsoft.Extensions.Configuration.FileExtensions/2.1.1": {
         "dependencies": {
           "Microsoft.Extensions.Configuration": "2.1.1",
@@ -185,19 +170,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.Extensions.Configuration.Json.dll": {
-            "assemblyVersion": "2.1.1.0",
-            "fileVersion": "2.1.1.18157"
-          }
-        }
-      },
-      "Microsoft.Extensions.Configuration.Xml/2.1.1": {
-        "dependencies": {
-          "Microsoft.Extensions.Configuration": "2.1.1",
-          "Microsoft.Extensions.Configuration.FileExtensions": "2.1.1",
-          "System.Security.Cryptography.Xml": "4.5.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Xml.dll": {
             "assemblyVersion": "2.1.1.0",
             "fileVersion": "2.1.1.18157"
           }
@@ -578,56 +550,6 @@
           }
         }
       },
-      "System.Security.Cryptography.Cng/4.5.0": {
-        "runtimeTargets": {
-          "runtime/win/lib/_._": {
-            "rid": "win",
-            "assetType": "runtime"
-          }
-        }
-      },
-      "System.Security.Cryptography.Pkcs/4.5.0": {
-        "dependencies": {
-          "System.Security.Cryptography.Cng": "4.5.0"
-        },
-        "runtime": {
-          "lib/netcoreapp2.1/System.Security.Cryptography.Pkcs.dll": {
-            "assemblyVersion": "4.0.3.0",
-            "fileVersion": "4.6.26515.6"
-          }
-        },
-        "runtimeTargets": {
-          "runtimes/win/lib/netcoreapp2.1/System.Security.Cryptography.Pkcs.dll": {
-            "rid": "win",
-            "assetType": "runtime",
-            "assemblyVersion": "4.0.3.0",
-            "fileVersion": "4.6.26515.6"
-          }
-        }
-      },
-      "System.Security.Cryptography.Xml/4.5.0": {
-        "dependencies": {
-          "System.Security.Cryptography.Pkcs": "4.5.0",
-          "System.Security.Permissions": "4.5.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.Security.Cryptography.Xml.dll": {
-            "assemblyVersion": "4.0.1.0",
-            "fileVersion": "4.6.26515.6"
-          }
-        }
-      },
-      "System.Security.Permissions/4.5.0": {
-        "dependencies": {
-          "System.Security.AccessControl": "4.5.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.Security.Permissions.dll": {
-            "assemblyVersion": "4.0.1.0",
-            "fileVersion": "4.6.26515.6"
-          }
-        }
-      },
       "System.Security.Principal.Windows/4.5.0": {
         "runtimeTargets": {
           "runtime/unix/lib/_._": {
@@ -817,13 +739,6 @@
       "path": "microsoft.extensions.configuration.binder/2.1.1",
       "hashPath": "microsoft.extensions.configuration.binder.2.1.1.nupkg.sha512"
     },
-    "Microsoft.Extensions.Configuration.CommandLine/2.1.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-mLtD/B9sx0jycMcPcIweb5x0bRKBoDcN+xONQnw6urMZTyazyJED+zTfj2ZCbVsloh7SW2W6f16UpELD+xtaOA==",
-      "path": "microsoft.extensions.configuration.commandline/2.1.1",
-      "hashPath": "microsoft.extensions.configuration.commandline.2.1.1.nupkg.sha512"
-    },
     "Microsoft.Extensions.Configuration.FileExtensions/2.1.1": {
       "type": "package",
       "serviceable": true,
@@ -837,13 +752,6 @@
       "sha512": "sha512-f6KcI9v0GVA4YL/ExoxrEfeQv9La3hyQnySfgxGkFtMeDJIUun0ANoMjspbdpXXnuaScwgbQ2mFE3lJHt9lpJw==",
       "path": "microsoft.extensions.configuration.json/2.1.1",
       "hashPath": "microsoft.extensions.configuration.json.2.1.1.nupkg.sha512"
-    },
-    "Microsoft.Extensions.Configuration.Xml/2.1.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-Bs2wJX9BbtXcwAL2KlUNMKyVQfy2r5Iq9pweMaPFN5aCB719YCnOK4dT3tyZfvrtN9XxlJUZ2DeJjNsFxklexA==",
-      "path": "microsoft.extensions.configuration.xml/2.1.1",
-      "hashPath": "microsoft.extensions.configuration.xml.2.1.1.nupkg.sha512"
     },
     "Microsoft.Extensions.DependencyInjection/2.1.1": {
       "type": "package",
@@ -1138,34 +1046,6 @@
       "sha512": "sha512-aVjTe36YkO8FzfNhMLoPEzv3gF9rphoW9ngFhG/MH4zzEPLx07sNrgCLwMP4Wx2leI6qarMrGv21OwQXYUKLmw==",
       "path": "system.security.accesscontrol/4.5.0",
       "hashPath": "system.security.accesscontrol.4.5.0.nupkg.sha512"
-    },
-    "System.Security.Cryptography.Cng/4.5.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-O4tqXxWCD8y1IU1VTgzbuBFwoRahrADhDUxHjwezhHCsqyFNyQ5EytjWBxu0EsZuH14b4UO2pFkG063K2h/9Ug==",
-      "path": "system.security.cryptography.cng/4.5.0",
-      "hashPath": "system.security.cryptography.cng.4.5.0.nupkg.sha512"
-    },
-    "System.Security.Cryptography.Pkcs/4.5.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-1vv2x8cok3NAolee/nb6X/6PnTx+OBKUM3kt1Rlgg04uQ+IMwjc88xFIfJdwbYcvjlOtzT7CHba1pqVAu9tj/w==",
-      "path": "system.security.cryptography.pkcs/4.5.0",
-      "hashPath": "system.security.cryptography.pkcs.4.5.0.nupkg.sha512"
-    },
-    "System.Security.Cryptography.Xml/4.5.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-UvxfrEg7YG7U6BQO8WdQ4Nu1LFt2lqYQnoZefaK/2RDvjYdJ+norsVe4dwOqo14XiipgYY5xNUo6VhQXNbl2vg==",
-      "path": "system.security.cryptography.xml/4.5.0",
-      "hashPath": "system.security.cryptography.xml.4.5.0.nupkg.sha512"
-    },
-    "System.Security.Permissions/4.5.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-vDQ7q30Soe0a1cPhvxn+7IFmMeTG5IP+hTQrnKQDjTNpD2epqwbZSzMM2Git5TXBr4Kwwhc/0SEtJY0qPoiegA==",
-      "path": "system.security.permissions/4.5.0",
-      "hashPath": "system.security.permissions.4.5.0.nupkg.sha512"
     },
     "System.Security.Principal.Windows/4.5.0": {
       "type": "package",

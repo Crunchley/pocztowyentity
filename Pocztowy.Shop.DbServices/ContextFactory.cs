@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Pocztowy.Shop.DbServices
 {
-    class ContextFactory : IDesignTimeDbContextFactory<ShopContext>
+    public class ContextFactory : IDesignTimeDbContextFactory<ShopContext>
     {
         public ShopContext CreateDbContext(string[] args)
         {
