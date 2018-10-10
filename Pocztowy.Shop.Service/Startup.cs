@@ -34,8 +34,14 @@ namespace Pocztowy.Shop.Service
                 options.UseSqlServer(connectionString));
 
             services.AddScoped<IProductsService, DbProductsService>();
+            services.AddScoped<ICustomersService, DbCustomersService>();
+            services.AddScoped<IServicesService, DbServicesService>();
+            services.AddScoped<IOrdersService, DbOrdersService>();
+            services.AddScoped<IOrderDetailsService, DbOrderDetailsService>();
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc(options => options.RespectBrowserAcceptHeader = true)
+                .AddXmlSerializerFormatters()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

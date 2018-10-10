@@ -15,6 +15,8 @@ namespace Pocztowy.Shop.Generator
             .RuleFor(p => p.UnitPrice, f => decimal.Parse(f.Commerce.Price()))
             .RuleFor(p => p.Color, f => f.Commerce.Color())
             .RuleFor(p => p.Description, f => f.Lorem.Paragraph())
+            .RuleFor(p => p.Barcode, f => f.Commerce.Ean13())
+            .RuleFor(p => p.Weight, f => float.Parse(f.Commerce.Price()))
             .FinishWith((f, product) => Console.WriteLine($"Product {product.Name} was created."));
 
         public Faker<Service> FakeServices => new Faker<Service>()
@@ -27,11 +29,13 @@ namespace Pocztowy.Shop.Generator
             .FinishWith((f, service) => Console.WriteLine($"Service {service.Name} was created."));
 
         public Faker<Customer> FakeCustomers = new Faker<Customer>()
-            .StrictMode(true)
-            .RuleFor(c => c.Id, f => f.IndexFaker)
+            //.StrictMode(true)
+            .Ignore(c => c.Id)
             .RuleFor(c => c.FirstName, f => f.Person.FirstName)
             .RuleFor(c => c.LastName, f => f.Person.LastName)
             .FinishWith((f, customer) => Console.WriteLine($"Customer {customer.FullName} was created."));
+
+
 
         public IList<Product> GetProducts(int count) => FakeProducts.Generate(count);
         public IList<Service> GetServices(int count) => FakeServices.Generate(count);

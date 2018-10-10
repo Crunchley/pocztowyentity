@@ -4,7 +4,7 @@ namespace Pocztowy.Shop.Models
 {
     public class OrderDetail : Base
     {
-        protected OrderDetail()
+        public OrderDetail()
         {
 
         }
@@ -26,8 +26,9 @@ namespace Pocztowy.Shop.Models
             UnitPrice = item.UnitPrice;
         }
 
-        public Item Item { get; set; }
+        public virtual Item Item { get; set; }
         public int Quantity { get; set; }
         public decimal UnitPrice { get; set; }
+        public virtual Order Order { get; set; }
     }
 }

@@ -19,14 +19,6 @@ namespace Pocztowy.Shop.ConsoleClient
             ContextFactory contextFactory = new DbServices.ContextFactory();
             ShopContext context = contextFactory.CreateDbContext(args);
 
-            var product = context.Products.First();
-
-            Console.WriteLine(context.Entry(product).State);
-            product.UnitPrice = 121;
-            Console.WriteLine(context.Entry(product).State);
-            context.SaveChanges();
-            Console.WriteLine(context.Entry(product).State);
-
 
             IProductsService productsService = new DbProductsService(context);
 
@@ -42,21 +34,26 @@ namespace Pocztowy.Shop.ConsoleClient
             //context.Database.EnsureCreated();
             context.Database.Migrate();
 
-            var customers = context.Customers.ToList();
-            var products = context.Products
-                .Where(p => p.UnitPrice > 100)
-                .OrderBy(p => p.Name)
-                .Select(p => new { p.Name, p.Color })
-                .ToList();
+            for (int i = 2; i < 10; i++)
+            {
+                //CreateOrder(context, $"ZA {i}");
+            }
 
-            var productsByColor = context.Products
-                .GroupBy(p => p.Color)
-                .ToList();
+            //var customers = context.Customers.ToList();
+            //var products = context.Products
+            //    .Where(p => p.UnitPrice > 100)
+            //    .OrderBy(p => p.Name)
+            //    .Select(p => new { p.Name, p.Color })
+            //    .ToList();
 
-            var productsQuantityByColor = context.Products
-                .GroupBy(p => p.Color)
-                .Select(g => new { Color = g.Key, Quantity = g.Count() })
-                .ToList();
+            //var productsByColor = context.Products
+            //    .GroupBy(p => p.Color)
+            //    .ToList();
+
+            //var productsQuantityByColor = context.Products
+            //    .GroupBy(p => p.Color)
+            //    .Select(g => new { Color = g.Key, Quantity = g.Count() })
+            //    .ToList();
 
             //string customers = configuration["Generator:Customers"];
 
@@ -67,6 +64,20 @@ namespace Pocztowy.Shop.ConsoleClient
             Console.ReadKey();
 
             var tuple = GetTuple();
+        }
+
+        private static void CreateOrder(ShopContext context, string orderNumber)
+        {
+            var customer = context.Customers.First();
+            var order = new Order(orderNumber, customer);
+            var product = context.Products.First();
+            var service = context.Services.First();
+
+            order.Details.Add(new OrderDetail(product));
+            order.Details.Add(new OrderDetail(service));
+
+            context.Orders.Add(order);
+            context.SaveChanges();
         }
 
         private static (string name, string color) GetTuple()
@@ -80,9 +91,11 @@ namespace Pocztowy.Shop.ConsoleClient
             Generator.Generator generator = new Generator.Generator();
             var products = generator.GetProducts(100);
             var services = generator.GetServices(100);
+            var customers = generator.GetCustomers(10);
 
             context.Products.AddRange(products);
             context.Services.AddRange(services);
+            context.Customers.AddRange(customers);
             context.SaveChanges();
         }
 

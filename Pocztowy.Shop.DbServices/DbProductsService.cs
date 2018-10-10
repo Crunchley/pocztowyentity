@@ -9,22 +9,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Pocztowy.Shop.DbServices
 {
-    public class DbProductsService : IProductsService
+    public class DbProductsService : DbEntitiesService<Product>, IProductsService
     {
-        private readonly ShopContext context;
-
-        public DbProductsService(ShopContext context)
+        public DbProductsService(ShopContext context) : base(context)
         {
-            this.context = context;
-        }
-        public void Add(Product entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Add(IList<Product> entities)
-        {
-            throw new NotImplementedException();
         }
 
         public IList<Product> Get(ProductSearchCriteria searchCriteria)
@@ -45,7 +33,7 @@ namespace Pocztowy.Shop.DbServices
             }
             if (searchCriteria.UnitPrice.To.HasValue)
             {
-                products = products.Where(p => p.UnitPrice >= searchCriteria.UnitPrice.To);
+                products = products.Where(p => p.UnitPrice <= searchCriteria.UnitPrice.To);
             }
 
             var colors = new List<string> { "Red", "Blue" };
@@ -54,28 +42,9 @@ namespace Pocztowy.Shop.DbServices
             return products.ToList();
         }
 
-        public Product Get(int id)
+        public IList<Product> GetByColor(string color)
         {
-            return context.Products.Find(id);
-        }
-
-        public IList<Product> Get()
-        {
-            return context.Products.ToList();
-        }
-
-        public void Remove(int id)
-        {
-            Product product = new Product { Id = id };
-            context.Entry(product).State = EntityState.Deleted;
-            context.SaveChanges();
-        }
-
-        public void Update(Product entity)
-        {
-            //context.Entry(entity).State = EntityState.Modified;
-            context.Update(entity);
-            context.SaveChanges();
+            return context.Products.Where(p => p.Color == color).ToList();
         }
     }
 }
