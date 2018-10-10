@@ -11,7 +11,7 @@ namespace Pocztowy.Shop.DbServices
 {
     public class DbProductsService : IProductsService
     {
-        private ShopContext context;
+        private readonly ShopContext context;
 
         public DbProductsService(ShopContext context)
         {
